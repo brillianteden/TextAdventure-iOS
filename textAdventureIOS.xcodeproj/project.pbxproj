@@ -12,6 +12,7 @@
 		F21E138F210513E600FBEFC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F21E138D210513E600FBEFC0 /* Main.storyboard */; };
 		F21E1391210513E800FBEFC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F21E1390210513E800FBEFC0 /* Assets.xcassets */; };
 		F21E1394210513E800FBEFC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F21E1392210513E800FBEFC0 /* LaunchScreen.storyboard */; };
+		F21E139C2105147F00FBEFC0 /* passage.png in Resources */ = {isa = PBXBuildFile; fileRef = F21E139B2105147F00FBEFC0 /* passage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		F21E1390210513E800FBEFC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F21E1393210513E800FBEFC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F21E1395210513E800FBEFC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F21E139B2105147F00FBEFC0 /* passage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = passage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				F21E138B210513E600FBEFC0 /* ViewController.swift */,
 				F21E138D210513E600FBEFC0 /* Main.storyboard */,
 				F21E1390210513E800FBEFC0 /* Assets.xcassets */,
+				F21E139B2105147F00FBEFC0 /* passage.png */,
 				F21E1392210513E800FBEFC0 /* LaunchScreen.storyboard */,
 				F21E1395210513E800FBEFC0 /* Info.plist */,
 			);
@@ -124,6 +127,7 @@
 			files = (
 				F21E1394210513E800FBEFC0 /* LaunchScreen.storyboard in Resources */,
 				F21E1391210513E800FBEFC0 /* Assets.xcassets in Resources */,
+				F21E139C2105147F00FBEFC0 /* passage.png in Resources */,
 				F21E138F210513E600FBEFC0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +287,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W2P579529X;
 				INFOPLIST_FILE = textAdventureIOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,6 +306,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W2P579529X;
 				INFOPLIST_FILE = textAdventureIOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.14" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,75 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="textAdventureIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passage.png" translatesAutoresizingMaskIntoConstraints="NO" id="VVI-ty-Lo9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.69999999999999996" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="white" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="abp-7N-1Vc">
+                                <rect key="frame" x="25" y="45" width="325" height="487"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">You've taken a study break to geocache downtown. There's something satisfying about hiding secrets to be discovered by others. Speaking of secrets, that's an unusual looking manhole cover. It must be at least 50 years old, and judging by the covering of dust,</string>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lmg-yV-qb7">
+                                <rect key="frame" x="25" y="612" width="325" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="bottomButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SVy-tK-FfA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJK-H0-LzS">
+                                <rect key="frame" x="25" y="557" width="325" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="topButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aX3-vr-Ggn"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="VVI-ty-Lo9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="8nv-0O-1Ai"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="abp-7N-1Vc" secondAttribute="trailing" constant="25" id="9Gz-rF-feY"/>
+                            <constraint firstItem="VVI-ty-Lo9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Cne-pN-sel"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PJK-H0-LzS" secondAttribute="trailing" constant="25" id="HfO-2X-j6d"/>
+                            <constraint firstItem="VVI-ty-Lo9" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="JPq-xl-kXZ"/>
+                            <constraint firstItem="abp-7N-1Vc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="OaD-gY-fOf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Lmg-yV-qb7" secondAttribute="bottom" constant="25" id="QJg-1T-CdZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Lmg-yV-qb7" secondAttribute="trailing" constant="25" id="V3h-QI-WMo"/>
+                            <constraint firstItem="PJK-H0-LzS" firstAttribute="top" secondItem="abp-7N-1Vc" secondAttribute="bottom" constant="25" id="eZ0-gs-6de"/>
+                            <constraint firstItem="Lmg-yV-qb7" firstAttribute="top" secondItem="PJK-H0-LzS" secondAttribute="bottom" constant="25" id="fXV-1z-O5N"/>
+                            <constraint firstAttribute="trailing" secondItem="VVI-ty-Lo9" secondAttribute="trailing" id="hZE-DP-0xv"/>
+                            <constraint firstItem="abp-7N-1Vc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="lPR-fr-1Cs"/>
+                            <constraint firstItem="Lmg-yV-qb7" firstAttribute="top" secondItem="PJK-H0-LzS" secondAttribute="bottom" constant="25" id="lkd-uI-Cdo"/>
+                            <constraint firstItem="PJK-H0-LzS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="uUO-VT-FFL"/>
+                            <constraint firstItem="Lmg-yV-qb7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="zn3-9v-0Jk"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="bottomButton" destination="Lmg-yV-qb7" id="PCy-jN-fTQ"/>
+                        <outlet property="storyTextView" destination="abp-7N-1Vc" id="KTR-1v-JSP"/>
+                        <outlet property="topButton" destination="PJK-H0-LzS" id="5VW-WW-JXg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="117.39130434782609"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="passage.png" width="1600" height="2560"/>
+    </resources>
 </document>
