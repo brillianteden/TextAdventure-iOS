@@ -11,6 +11,10 @@ import UIKit
 class ViewController: UIViewController {
     
     // Mark: - Our strings
+    let End_Story = "Your journey has ended for now. The game has been reset and is ready for you to try again when you are ready."
+    let End_Ans1 = "" // both buttons are hidden
+    let End_Ans2 = ""
+    
     let T1_Story = "You've taken a break from studying to do some geocaching downtown. Nothing calms the nerves like hiding the small collectibles you find at garage sales, knowing that it may be years before someone else stumbles upon your secret. Speaking of secrets, that's an unusual looking manhole cover. It must be at least 50 years old, and judging by the dust covering it, it hasn't been opened in years. You always have a small flashlight on you, and you're tempted to go in now. Or should you find a friend to come with you?"
     let T1_Ans1 = "Go in now!" // leads to T2_Story
     let T1_Ans2 = "Safety in numbers. Find a friend." // leads to T3_Story
@@ -102,7 +106,7 @@ class ViewController: UIViewController {
     
     let E23_Story = "You squeeze your way into the crack, but Elaine gets a look on her face which indicates that's not going to happen with her! This opens up into a small cave, and as you start exploring the cave, from the opening you hear a scream from Elaine, and then a startled \"Hello? Is someone down here?\" Inevitibly you see a light shine your way, and with a sigh they say \"Excuse me, you are trespassing here and need to leave. Please come with me.\" Uh oh... busted! Do you want to play again?"
     let E23_Ans1 = "Try again." // Leads to T1_Story
-    let E23_Ans2 = "Play later." // Ends game
+    let E23_Ans2 = "Play later." // Ends game and leads to End_Story
     
     let G24_Story = ""
     let G24_Ans1 = ""
@@ -313,12 +317,12 @@ class ViewController: UIViewController {
     let T75_Ans2 = "" // leads to T
     
     let E76_Story = "Continued tunnel with Elaine"
-    let E76_Ans1 = ""
-    let E76_Ans2 = ""
+    let E76_Ans1 = "" // leads to E
+    let E76_Ans2 = "" // leads to E
     
     let E77_Story = "Continued tunnel with Elaine"
-    let E77_Ans1 = ""
-    let E77_Ans2 = ""
+    let E77_Ans1 = "" // leads to E
+    let E77_Ans2 = "" // leads to E
     
     let G78_Story = ""
     let G78_Ans1 = ""
@@ -395,199 +399,94 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // TODO: Set the text for the storyTextView, topButton, bottomButton
-        storyIndex = 1
-        storyTextView.text = T1_Story
-        topButton.setTitle(T1_Ans1, for: .normal)
-        bottomButton.setTitle(T1_Ans2, for: .normal)
+        updateUI(textView: T1_Story, topButtonText: T1_Ans1, bottomButtonText: T1_Ans2, index: 1)
     }
     
     @IBAction func topButton(_ sender: UIButton) {
         switch storyIndex {
         case 1:
-            storyTextView.text = T2_Story
-            topButton.setTitle(T2_Ans1, for: .normal)
-            bottomButton.setTitle(T2_Ans2, for: .normal)
-            storyIndex = 2
+            updateUI(textView: T2_Story, topButtonText: T2_Ans1, bottomButtonText: T2_Ans2, index: 2)
         case 2:
-            storyTextView.text = T4_Story
-            topButton.setTitle(T4_Ans1, for: .normal)
-            bottomButton.setTitle(T4_Ans2, for: .normal)
-            storyIndex = 4
+            updateUI(textView: T4_Story, topButtonText: T4_Ans1, bottomButtonText: T4_Ans2, index: 4)
         case 3:
-            storyTextView.text = E6_Story
-            topButton.setTitle(E6_Ans1, for: .normal)
-            bottomButton.setTitle(E6_Ans2, for: .normal)
-            storyIndex = 6
+            updateUI(textView: E6_Story, topButtonText: E6_Ans1, bottomButtonText: E6_Ans2, index: 6)
         case 4...5:
-            storyTextView.text = T8_Story
-            topButton.setTitle(T8_Ans1, for: .normal)
-            bottomButton.setTitle(T8_Ans2, for: .normal)
-            storyIndex = 8
+            updateUI(textView: T8_Story, topButtonText: T8_Ans1, bottomButtonText: T8_Ans2, index: 8)
         case 6:
-            storyTextView.text = E10_Story
-            topButton.setTitle(E10_Ans1, for: .normal)
-            bottomButton.setTitle(E10_Ans2, for: .normal)
-            storyIndex = 10
+            updateUI(textView: E10_Story, topButtonText: E10_Ans1, bottomButtonText: E10_Ans2, index: 10)
         case 7:
-            storyTextView.text = G12_Story
-            topButton.setTitle(G12_Ans1, for: .normal)
-            bottomButton.setTitle(G12_Ans2, for: .normal)
-            storyIndex = 12
+            updateUI(textView: G12_Story, topButtonText: G12_Ans1, bottomButtonText: G12_Ans2, index: 12)
         case 8:
-            storyTextView.text = T14_Story
-            topButton.setTitle(T14_Ans1, for: .normal)
-            bottomButton.setTitle(T14_Ans2, for: .normal)
-            storyIndex = 14
+            updateUI(textView: T14_Story, topButtonText: T14_Ans1, bottomButtonText: T14_Ans2, index: 14)
         case 9:
-            storyTextView.text = T20_Story
             topButton.isHidden = true
-            bottomButton.setTitle(T20_Ans2, for: .normal)
-            storyIndex = 20
+            updateUI(textView: T20_Story, topButtonText: T20_Ans1, bottomButtonText: T20_Ans2, index: 20)
         case 10...11:
-            storyTextView.text = E16_Story
-            topButton.setTitle(E16_Ans1, for: .normal)
-            bottomButton.setTitle(E16_Ans2, for: .normal)
-            storyIndex = 16
+            updateUI(textView: E16_Story, topButtonText: E16_Ans1, bottomButtonText: E16_Ans2, index: 16)
         case 14...15:
-            storyTextView.text = T26_Story
-            topButton.setTitle(T26_Ans1, for: .normal)
-            bottomButton.setTitle(T26_Ans2, for: .normal)
-            storyIndex = 26
+            updateUI(textView: T26_Story, topButtonText: T26_Ans1, bottomButtonText: T26_Ans2, index: 26)
         case 16:
-            storyTextView.text = E22_Story
-            topButton.setTitle(E22_Ans1, for: .normal)
-            bottomButton.setTitle(E22_Ans2, for: .normal)
-            storyIndex = 22
+            updateUI(textView: E22_Story, topButtonText: E22_Ans1, bottomButtonText: E22_Ans2, index: 22)
         case 17:
-            storyTextView.text = E28_Story
-            topButton.setTitle(E28_Ans1, for: .normal)
-            bottomButton.setTitle(E28_Ans2, for: .normal)
-            storyIndex = 28
+            updateUI(textView: E28_Story, topButtonText: E28_Ans1, bottomButtonText: E28_Ans2, index: 28)
         case 22:
-            storyTextView.text = E34_Story
-            topButton.setTitle(E34_Ans1, for: .normal)
-            bottomButton.setTitle(E34_Ans2, for: .normal)
-            storyIndex = 34
-        case 23:
-            storyTextView.text = T1_Story
-            topButton.setTitle(T1_Ans1, for: .normal)
-            bottomButton.setTitle(T1_Ans2, for: .normal)
-            storyIndex = 1
+            updateUI(textView: E34_Story, topButtonText: E34_Ans1, bottomButtonText: E34_Ans2, index: 34)
+//        case 23:
+//            updateUI(textView: T1_Story, topButtonText: T1_Ans1, bottomButtonText: T1_Ans2, index: 1)
         case 26:
-            storyTextView.text = T33_Story
-            topButton.setTitle(T33_Ans1, for: .normal)
-            bottomButton.setTitle(T33_Ans2, for: .normal)
-            storyIndex = 33
-        case 27:
-            storyTextView.text = T1_Story
-            topButton.setTitle(T1_Ans1, for: .normal)
-            bottomButton.setTitle(T1_Ans2, for: .normal)
-            storyIndex = 1
+            updateUI(textView: T33_Story, topButtonText: T33_Ans1, bottomButtonText: T33_Ans2, index: 33)
+//        case 27:
+//            updateUI(textView: T1_Story, topButtonText: T1_Ans1, bottomButtonText: T1_Ans2, index: 1)
         default:
-            storyTextView.text = T1_Story
-            topButton.setTitle(T1_Ans1, for: .normal)
-            bottomButton.setTitle(T1_Ans2, for: .normal)
-            storyIndex = 1
+            updateUI(textView: T1_Story, topButtonText: T1_Ans1, bottomButtonText: T1_Ans2, index: 1)
         }
     }
     
     @IBAction func bottomButton(_ sender: UIButton) {
         switch storyIndex {
         case 1:
-            storyTextView.text = T3_Story
-            topButton.setTitle(T3_Ans1, for: .normal)
-            bottomButton.setTitle(T3_Ans2, for: .normal)
-            storyIndex = 3
+            updateUI(textView: T3_Story, topButtonText: T3_Ans1, bottomButtonText: T3_Ans2, index: 3)
         case 2:
-            storyTextView.text = T5_Story
-            topButton.setTitle(T5_Ans1, for: .normal)
-            bottomButton.setTitle(T5_Ans2, for: .normal)
-            storyIndex = 5
+            updateUI(textView: T5_Story, topButtonText: T5_Ans1, bottomButtonText: T5_Ans2, index: 5)
         case 3:
-            storyTextView.text = G7_Story
-            topButton.setTitle(G7_Ans1, for: .normal)
-            bottomButton.setTitle(G7_Ans2, for: .normal)
-            storyIndex = 7
+            updateUI(textView: G7_Story, topButtonText: G7_Ans1, bottomButtonText: G7_Ans2, index: 7)
         case 4...5:
-            storyTextView.text = T9_Story
-            topButton.setTitle(T9_Ans1, for: .normal)
-            bottomButton.setTitle(T9_Ans2, for: .normal)
-            storyIndex = 9
+            updateUI(textView: T9_Story, topButtonText: T9_Ans1, bottomButtonText: T9_Ans2, index: 9)
         case 6:
-            storyTextView.text = E11_Story
-            topButton.setTitle(E11_Ans1, for: .normal)
-            bottomButton.setTitle(E11_Ans2, for: .normal)
-            storyIndex = 11
+            updateUI(textView: E11_Story, topButtonText: E11_Ans1, bottomButtonText: E11_Ans2, index: 11)
         case 7:
-            storyTextView.text = G13_Story
-            topButton.setTitle(G13_Ans1, for: .normal)
-            bottomButton.setTitle(G13_Ans2, for: .normal)
-            storyIndex = 13
+            updateUI(textView: G13_Story, topButtonText: G13_Ans1, bottomButtonText: G13_Ans2, index: 13)
         case 8:
-            storyTextView.text = T15_Story
-            topButton.setTitle(T15_Ans1, for: .normal)
-            bottomButton.setTitle(T15_Ans2, for: .normal)
-            storyIndex = 15
+            updateUI(textView: T15_Story, topButtonText: T15_Ans1, bottomButtonText: T15_Ans2, index: 15)
         case 9:
-            storyTextView.text = T21_Story
-            topButton.setTitle(T21_Ans1, for: .normal)
-            bottomButton.setTitle(T21_Ans2, for: .normal)
-            storyIndex = 21
+            updateUI(textView: T21_Story, topButtonText: T21_Ans1, bottomButtonText: T21_Ans2, index: 21)
         case 10...11:
-            storyTextView.text = E17_Story
-            topButton.setTitle(E17_Ans1, for: .normal)
-            bottomButton.setTitle(E17_Ans2, for: .normal)
-            storyIndex = 17
+            updateUI(textView: E17_Story, topButtonText: E17_Ans1, bottomButtonText: E17_Ans2, index: 17)
         case 14...15:
-            storyTextView.text = T27_Story
-            topButton.setTitle(T27_Ans1, for: .normal)
-            bottomButton.setTitle(T27_Ans2, for: .normal)
-            storyIndex = 27
+            updateUI(textView: T27_Story, topButtonText: T27_Ans1, bottomButtonText: T27_Ans2, index: 27)
         case 16:
-            storyTextView.text = E23_Story
-            topButton.setTitle(E23_Ans1, for: .normal)
-            bottomButton.setTitle(E23_Ans2, for: .normal)
-            storyIndex = 23
+            updateUI(textView: E23_Story, topButtonText: E23_Ans1, bottomButtonText: E23_Ans2, index: 23)
         case 17:
-            storyTextView.text = E29_Story
-            topButton.setTitle(E29_Ans1, for: .normal)
-            bottomButton.setTitle(E29_Ans2, for: .normal)
-            storyIndex = 29
+            updateUI(textView: E29_Story, topButtonText: E29_Ans1, bottomButtonText: E29_Ans2, index: 29)
         case 20:
-            storyTextView.text = T21_Story
             topButton.isHidden = true
-            bottomButton.setTitle(T21_Ans2, for: .normal)
-            storyIndex = 21
+            updateUI(textView: T21_Story, topButtonText: T21_Ans1, bottomButtonText: T21_Ans2, index: 21)
         case 21:
-            storyTextView.text = T32_Story
-            topButton.setTitle(T32_Ans1, for: .normal)
-            bottomButton.setTitle(T32_Ans2, for: .normal)
-            storyIndex = 32
+            updateUI(textView: T32_Story, topButtonText: T32_Ans1, bottomButtonText: T32_Ans2, index: 32)
         case 22:
-            storyTextView.text = E35_Story
-            topButton.setTitle(E35_Ans1, for: .normal)
-            bottomButton.setTitle(E35_Ans2, for: .normal)
-            storyIndex = 35
+            updateUI(textView: E35_Story, topButtonText: E35_Ans1, bottomButtonText: E35_Ans2, index: 35)
         case 23:
-            storyTextView.text = "Your journey has ended for now. The game has been reset and is ready for you to try again when you are ready."
             topButton.isHidden = true
             bottomButton.isHidden = true
-            storyIndex = 1
+            updateUI(textView: End_Story, topButtonText: End_Ans1, bottomButtonText: End_Ans2, index: 1)
         case 27:
-            storyTextView.text = "Your journey has ended for now. The game has been reset and is ready for you to try again when you are ready."
             topButton.isHidden = true
             bottomButton.isHidden = true
-            storyIndex = 1
+            updateUI(textView: End_Story, topButtonText: End_Ans1, bottomButtonText: End_Ans2, index: 1)
         case 28:
-            storyTextView.text = E29_Story
-            topButton.setTitle(E29_Ans1, for: .normal)
-            bottomButton.setTitle(E29_Ans2, for: .normal)
-            storyIndex = 29
+            updateUI(textView: E29_Story, topButtonText: E29_Ans1, bottomButtonText: E29_Ans2, index: 29)
         default:
             updateUI(textView: T1_Story, topButtonText: T1_Ans1, bottomButtonText: T1_Ans2, index: 1)
-//            topButton.setTitle(T1_Ans1, for: .normal)
-//            bottomButton.setTitle(T1_Ans2, for: .normal)
-//            storyIndex = 1
         }
     }
 
